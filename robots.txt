@@ -1,0 +1,10 @@
+# Robots.txt - Portfolio Elvis M'BOLLO
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://wthomasss06-stack.github.io/mon-premier-projet/sitemap.xml
+
+# Empêcher l'indexation de fichiers sensibles (si nécessaire)
+Disallow: /node_modules/
+Disallow: /.git/

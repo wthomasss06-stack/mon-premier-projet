@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Page principale -->
+    <url>
+        <loc>https://wthomasss06-stack.github.io/mon-premier-projet/</loc>
+        <lastmod>2025-01-17</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- Sections -->
+    <url>
+        <loc>https://wthomasss06-stack.github.io/mon-premier-projet/#services</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://wthomasss06-stack.github.io/mon-premier-projet/#pricing</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://wthomasss06-stack.github.io/mon-premier-projet/#about</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://wthomasss06-stack.github.io/mon-premier-projet/#skills</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://wthomasss06-stack.github.io/mon-premier-projet/#projects</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://wthomasss06-stack.github.io/mon-premier-projet/#experience</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://wthomasss06-stack.github.io/mon-premier-projet/#contact</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Pages projets -->
+    <url>
+        <loc>https://wthomasss06-stack.github.io/mon-premier-projet/projet1.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <url>
+        <loc>https://wthomasss06-stack.github.io/mon-premier-projet/projet2.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <url>
+        <loc>https://wthomasss06-stack.github.io/mon-premier-projet/projet3.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <url>
+        <loc>https://wthomasss06-stack.github.io/mon-premier-projet/projet5.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <url>
+        <loc>https://wthomasss06-stack.github.io/mon-premier-projet/projet6.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <url>
+        <loc>https://wthomasss06-stack.github.io/mon-premier-projet/projet7.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+</urlset>
