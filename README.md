@@ -204,7 +204,7 @@ Découvrez les secrets du portfolio :
 
 ## 📧 Contact
 
-**Elvis M'BOLLO AKA**  
+**M'BOLLO AKA**  
 Développeur Web Full-Stack
 
 - 📧 Email : [aka.mbollo@uvci.edu.ci](mailto:aka.mbollo@uvci.edu.ci)
@@ -226,7 +226,7 @@ Développeur Web Full-Stack
 
 ## 📝 Licence
 
-© 2025 Elvis M'BOLLO. Tous droits réservés.
+© 2026 Elvis M'BOLLO. Tous droits réservés.
 
 Ce portfolio est une vitrine technique démontrant mes compétences en développement web. Les projets présentés sont des démonstrations conçues pour illustrer ma logique de développement et ma vision produit.
 
