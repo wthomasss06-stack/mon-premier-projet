@@ -26,7 +26,7 @@ Portfolio personnel présentant mes compétences, projets et expériences en dé
 
 ---
 
-## ✨ Caractéristiques
+## ✨ Caractéristiques 
 
 ### 🎨 Design & Interface
 
@@ -220,7 +220,7 @@ Découvrez les secrets du portfolio :
 - ✅ **Performance** : Images optimisées, lazy loading, animations CSS natives
 - ✅ **Accessibilité** : ARIA labels, navigation au clavier, Material Symbols
 - ✅ **Responsive** : Mobile-first approach, grilles adaptatives
-- ✅ **Analytics** : Google Analytics intégré (G-03KYKKMT0R)
+- ✅ **Analytics** : Google Analytics intégré (G-**********)
 
 ### Résultats
 
@@ -289,8 +289,6 @@ Ce portfolio est une vitrine technique démontrant mes compétences en développ
 ## 📌 Version
 
 **Version actuelle** : 2.0.0 (Janvier 2026)
-
 ---
+
 **Fait avec le❤️**
-
----
