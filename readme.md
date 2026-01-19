@@ -21,7 +21,7 @@ Portfolio personnel présentant mes compétences, projets et expériences en dé
 
 ### Projets phares en production :
 
-- **[MonMarket CI](https://ecommerce-project-aka.netlify.app/)** - Marketplace e-commerce multi-vendeurs (60% complété)
+- **[MonMarket CI](https://ecommerce-aka.netlify.app/)** - Marketplace e-commerce multi-vendeurs (60% complété)
 - **[TerraSafe](https://wthomassss06.pythonanywhere.com)** - Plateforme foncière sécurisée (85% complété)
 
 ---
@@ -184,7 +184,7 @@ portfolio-akafolio/
 
 | Projet | Description | Technologies | Statut | Lien |
 |--------|-------------|--------------|--------|------|
-| **MonMarket CI** | Marketplace multi-vendeurs conçue pour résoudre les problèmes de fiabilité du e-commerce local ivoirien | React, Django, Bootstrap, Netlify | 60% | [Voir →](https://ecommerce-project-aka.netlify.app/) |
+| **MonMarket CI** | Marketplace multi-vendeurs conçue pour résoudre les problèmes de fiabilité du e-commerce local ivoirien | React, Django, Bootstrap, Netlify | 60% | [Voir →](https://ecommerce-aka.netlify.app/) |
 | **TerraSafe** | Plateforme foncière visant à réduire les risques d'arnaques liées à la vente de terrains | Flask, MySQL, JavaScript, Bootstrap | 85% | [Voir →](https://wthomassss06.pythonanywhere.com) |
 
 ### 🔵 Démos Fonctionnelles
@@ -264,7 +264,7 @@ Développeur Web Full-Stack
 ## 🔗 Liens utiles
 
 - 🌐 **Portfolio** : [https://wthomasss06-stack.github.io/mon-premier-projet/](https://wthomasss06-stack.github.io/mon-premier-projet/)
-- 🛒 **MonMarket CI** : [https://ecommerce-project-aka.netlify.app/](https://ecommerce-project-aka.netlify.app/)
+- 🛒 **MonMarket CI** : [https://ecommerce-project-aka.netlify.app/](https://ecommerce-aka.netlify.app/)
 - 🏡 **TerraSafe** : [https://wthomassss06.pythonanywhere.com](https://wthomassss06.pythonanywhere.com)
 
 ---
