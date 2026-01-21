@@ -2746,22 +2746,23 @@ body:not(.light-mode) .theme-transition-effect {
 
 
 /* ============================================
-   MODE GLASS TRANSPARENT - EFFET DE DINGUE
+   MODE GLASS TRANSPARENT - VERSION OPTIMISÉE LÉGÈRE
    ============================================ */
 
-/* Mode Glass de base */
+/* Mode Glass de base - Optimisé */
 body.glass-mode {
     --dark-bg: rgba(10, 22, 40, 0.3);
     --darker-bg: rgba(5, 13, 26, 0.5);
     --glass-bg: rgba(255, 255, 255, 0.05);
     --glass-border: rgba(255, 255, 255, 0.15);
     background: linear-gradient(135deg, 
-        rgba(16, 185, 129, 0.2) 0%,
-        rgba(59, 130, 246, 0.2) 50%,
-        rgba(139, 92, 246, 0.2) 100%);
+        rgba(16, 185, 129, 0.15) 0%,
+        rgba(59, 130, 246, 0.15) 50%,
+        rgba(139, 92, 246, 0.15) 100%);
+    background-attachment: fixed;
 }
 
-/* Arrière-plan animé pour le mode glass */
+/* Arrière-plan statique au lieu d'animé */
 body.glass-mode::before {
     content: '';
     position: fixed;
@@ -2770,25 +2771,35 @@ body.glass-mode::before {
     width: 100%;
     height: 100%;
     background: 
-        radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, rgba(139, 92, 246, 0.3) 0%, transparent 50%);
+        radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(139, 92, 246, 0.2) 0%, transparent 50%);
     z-index: -1;
-    animation: glassFloat 15s ease-in-out infinite;
+    pointer-events: none;
+    /* Animation désactivée par défaut - ajout au hover uniquement */
+    filter: blur(40px);
+    will-change: auto;
 }
 
-@keyframes glassFloat {
+/* Animation légère uniquement au scroll (optionnel) */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    body.glass-mode::before {
+        animation: glassFloatLight 20s ease-in-out infinite;
+    }
+}
+
+@keyframes glassFloatLight {
     0%, 100% { 
-        transform: scale(1) rotate(0deg);
+        transform: translateY(0) scale(1);
         filter: blur(40px);
     }
     50% { 
-        transform: scale(1.2) rotate(10deg);
-        filter: blur(60px);
+        transform: translateY(-20px) scale(1.05);
+        filter: blur(45px);
     }
 }
 
-/* Cartes en mode glass */
+/* Cartes en mode glass - Backdrop-filter réduit */
 body.glass-mode .navbar,
 body.glass-mode .service-card,
 body.glass-mode .project-card,
@@ -2799,22 +2810,30 @@ body.glass-mode .about-image-item,
 body.glass-mode .cv-download,
 body.glass-mode .blog-card {
     background: rgba(255, 255, 255, 0.08) !important;
-    backdrop-filter: blur(30px) saturate(180%);
+    backdrop-filter: blur(15px) saturate(150%);
+    -webkit-backdrop-filter: blur(15px) saturate(150%);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    /* Optimisation GPU */
+    transform: translateZ(0);
+    will-change: auto;
 }
 
-/* Hover effect en mode glass */
+/* Hover effect simplifié */
 body.glass-mode .service-card:hover,
 body.glass-mode .project-card:hover,
 body.glass-mode .blog-card:hover {
     background: rgba(255, 255, 255, 0.12) !important;
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 
-        0 20px 60px rgba(16, 185, 129, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    transform: translateY(-8px) translateZ(0);
+    box-shadow: 0 15px 40px rgba(16, 185, 129, 0.25);
+    will-change: transform;
+}
+
+/* Retour à l'état normal après hover */
+body.glass-mode .service-card:not(:hover),
+body.glass-mode .project-card:not(:hover),
+body.glass-mode .blog-card:not(:hover) {
+    will-change: auto;
 }
 
 /* Texte en mode glass */
@@ -2823,150 +2842,88 @@ body.glass-mode {
     --text-muted: rgba(255, 255, 255, 0.7);
 }
 
-/* Effets de brillance sur les cartes */
+/* Effet de brillance désactivé - trop lourd */
 body.glass-mode .service-card::before,
 body.glass-mode .project-card::before,
 body.glass-mode .blog-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.1),
-        transparent
-    );
-    transition: left 0.5s;
+    display: none;
 }
 
-body.glass-mode .service-card:hover::before,
-body.glass-mode .project-card:hover::before,
-body.glass-mode .blog-card:hover::before {
-    left: 100%;
-}
-
-/* Boutons en mode glass */
+/* Boutons en mode glass - Simplifié */
 body.glass-mode .btn-primary,
 body.glass-mode .btn-secondary,
 body.glass-mode .btn-cta,
 body.glass-mode .btn-download {
     background: rgba(16, 185, 129, 0.3) !important;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(16, 185, 129, 0.5);
-    box-shadow: 0 8px 32px rgba(16, 185, 129, 0.3);
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.2);
 }
 
 body.glass-mode .btn-primary:hover,
 body.glass-mode .btn-cta:hover,
 body.glass-mode .btn-download:hover {
     background: rgba(16, 185, 129, 0.5) !important;
-    box-shadow: 0 12px 40px rgba(16, 185, 129, 0.5);
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
 }
 
-/* Images en mode glass */
+/* Images en mode glass - Filter réduit */
 body.glass-mode .hero-image img,
 body.glass-mode .about-image-item img {
-    filter: brightness(1.1) contrast(1.1);
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    filter: brightness(1.05) contrast(1.05);
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 /* Timeline en mode glass */
 body.glass-mode .timeline::before {
     background: linear-gradient(
         180deg,
-        rgba(16, 185, 129, 0.5),
-        rgba(255, 255, 255, 0.2)
+        rgba(16, 185, 129, 0.4),
+        rgba(255, 255, 255, 0.15)
     );
 }
 
 body.glass-mode .timeline-dot {
     background: rgba(16, 185, 129, 0.8);
     border-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 0 30px rgba(16, 185, 129, 0.8);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
 }
 
 /* Footer en mode glass */
 body.glass-mode footer {
     background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Effet de particules flottantes */
+/* Particules désactivées - trop lourd */
 body.glass-mode::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-    background-size: 50px 50px;
-    animation: particlesFloat 60s linear infinite;
-    pointer-events: none;
-    z-index: -1;
+    display: none;
 }
 
-@keyframes particlesFloat {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-100px); }
-}
-
-/* Animation d'entrée */
+/* Animation d'entrée simplifiée */
 body.glass-mode .navbar,
 body.glass-mode section {
-    animation: glassAppear 0.8s ease-out;
+    animation: glassAppearLight 0.5s ease-out;
 }
 
-@keyframes glassAppear {
+@keyframes glassAppearLight {
     from {
         opacity: 0;
-        filter: blur(20px);
-        transform: scale(0.95);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
-        filter: blur(0);
-        transform: scale(1);
+        transform: translateY(0);
     }
 }
-
-/* Animations pour les notifications */
-@keyframes slideInLeft {
-    from { 
-        transform: translateX(-400px); 
-        opacity: 0; 
-    }
-    to { 
-        transform: translateX(0); 
-        opacity: 1; 
-    }
-}
-
-@keyframes slideOutLeft {
-    from { 
-        transform: translateX(0); 
-        opacity: 1; 
-    }
-    to { 
-        transform: translateX(-400px); 
-        opacity: 0; 
-    }
-}
-
-
-
-
 
 /* ============================================
    AJUSTEMENTS TEXTE POUR MODES GLASS CLAIR
    ============================================ */
 
-/* Mode Glass Clair - Texte noir sur blanc */
 body.glass-mode {
     --text-light: #1f2937;
     --text-muted: rgba(0, 0, 0, 0.6);
@@ -2984,24 +2941,9 @@ body.glass-mode .cv-download {
     color: #1f2937;
 }
 
-/* Mode Ultra Glass Clair - Texte noir sur blanc */
-body.ultra-glass-mode {
-    --text-light: #1f2937;
-    --text-muted: rgba(0, 0, 0, 0.65);
-}
+/* Mode Ultra Glass supprimé - redondant */
 
-body.ultra-glass-mode .navbar,
-body.ultra-glass-mode .service-card,
-body.ultra-glass-mode .project-card,
-body.ultra-glass-mode .skill-category,
-body.ultra-glass-mode .contact-item,
-body.ultra-glass-mode .timeline-content,
-body.ultra-glass-mode .about-image-item,
-body.ultra-glass-mode .cv-download {
-    background: rgba(255, 255, 255, 0.6) !important;
-    color: #1f2937;
-}
-/* Menu de sélection de mode de thème */
+/* Menu de sélection - Optimisé */
 .theme-mode-wrapper {
     position: relative;
 }
@@ -3011,7 +2953,8 @@ body.ultra-glass-mode .cv-download {
     top: 60px;
     right: 0;
     background: var(--glass-bg);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     border: 1px solid var(--glass-border);
     border-radius: 15px;
     padding: 10px;
@@ -3021,7 +2964,7 @@ body.ultra-glass-mode .cv-download {
     transform: translateY(-10px);
     transition: all 0.3s ease;
     z-index: 10001;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .theme-mode-menu.active {
@@ -3063,9 +3006,57 @@ body.ultra-glass-mode .cv-download {
     font-weight: 500;
 }
 
-/* Animation de l'icône du bouton de mode */
 #theme-mode-toggle i {
     transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ============================================
+   OPTIMISATIONS PERFORMANCES MODE GLASS
+   ============================================ */
+
+/* Désactiver animations lourdes sur mobile */
+@media (max-width: 768px) {
+    body.glass-mode::before {
+        animation: none;
+        filter: blur(30px);
+    }
+    
+    body.glass-mode .navbar,
+    body.glass-mode .service-card,
+    body.glass-mode .project-card {
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+    
+    body.glass-mode .navbar,
+    body.glass-mode section {
+        animation: none;
+    }
+}
+
+/* Préférence de performance */
+@media (prefers-reduced-motion: reduce) {
+    body.glass-mode::before {
+        animation: none !important;
+    }
+    
+    body.glass-mode .navbar,
+    body.glass-mode section {
+        animation: none !important;
+    }
+}
+
+/* Isolation des éléments pour meilleures performances */
+body.glass-mode .service-card,
+body.glass-mode .project-card,
+body.glass-mode .blog-card {
+    contain: layout style paint;
+}
+
+/* GPU acceleration uniquement pendant interactions */
+body.glass-mode .service-card:active,
+body.glass-mode .project-card:active {
+    will-change: transform;
 }
 
 /* Ajoutez ce CSS dans la section <style> de votre index7.html */
