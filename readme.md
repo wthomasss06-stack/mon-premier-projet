@@ -17,7 +17,7 @@ Portfolio personnel présentant mes compétences, projets et expériences en dé
 
 ## 🌐 Démo en ligne
 
-🔗 **[Voir le portfolio](https://wthomasss06-stack.github.io/mon-premier-projet/)**
+🔗 **[Voir le portfolio](https://akafolio.vercel.app/)**
 
 ### Projets phares en production :
 
@@ -263,7 +263,7 @@ Développeur Web Full-Stack
 
 ## 🔗 Liens utiles
 
-- 🌐 **Portfolio** : [https://wthomasss06-stack.github.io/mon-premier-projet/](https://wthomasss06-stack.github.io/mon-premier-projet/)
+- 🌐 **Portfolio** : [https://wthomasss06-stack.github.io/mon-premier-projet/](https://akafolio.vercel.app/)
 - 🛒 **MonMarket CI** : [https://ecommerce-project-aka.netlify.app/](https://ecommerce-aka.netlify.app/)
 - 🏡 **TerraSafe** : [https://wthomassss06.pythonanywhere.com](https://wthomassss06.pythonanywhere.com)
 
